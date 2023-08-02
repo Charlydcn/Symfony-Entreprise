@@ -32,6 +32,8 @@ class Entreprise
     private ?string $ville = null;
 
     #[ORM\OneToMany(mappedBy: 'entreprise', targetEntity: Employe::class, orphanRemoval: true)]
+    // ORDER BY EN + QUI S'APPLIQUERA SUR LA REQUÊTE SQL DE FindBy()
+    #[ORM\OrderBy(["nom" => "ASC"])]
     private Collection $employes;
 
     public function __construct()
@@ -102,6 +104,11 @@ class Entreprise
         $this->ville = $ville;
 
         return $this;
+    }
+
+    public function getAdresseComplete()
+    {
+        return $this->adresse . " " . $this->cp . " " . $this->ville;
     }
 
     /**

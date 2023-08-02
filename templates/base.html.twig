@@ -5,12 +5,44 @@
         <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+            {# asset() = dossier public #}
+            <link rel="stylesheet" href="{{ asset('css/style.css')}}">
         {% endblock %}
 
-        {% block javascripts %}
-        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="navbar navbar-expand-lg m-4 bg-light">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="#" class="navbar-brand">ENTREPRISE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ path('app_entreprise') }}">Liste des entreprises</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_employe') }}">Liste des employés</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('new_entreprise') }}">Ajouter une entreprise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('new_employe') }}">Ajouter un(e) employé(e)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="container">
+            {% block body %}{% endblock %}
+        </main>
+
+        {% block javascripts %}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+            <script src="{{ asset('js/script.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
