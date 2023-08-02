@@ -5,6 +5,27 @@
 {% block body %}
     <h1>Ajouter une entreprise</h1>
 
-    {{ form(addEntrepriseForm)}}
+    {{ form_start(addEntrepriseForm) }}
+        <div class="row">
+            <div class="col-sm">
+                {{ form_row(addEntrepriseForm.raisonSociale)}}
+            </div>
+            <div class="col-sm">
+                {{ form_row(addEntrepriseForm.dateCreation)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                {{ form_row(addEntrepriseForm.adresse)}}
+            </div>
+            <div class="col-sm">
+                {{ form_row(addEntrepriseForm.cp)}}
+            </div>
+            <div class="col-sm">
+                {{ form_row(addEntrepriseForm.ville)}}
+            </div>
+        </div>
+        {{ form_row(addEntrepriseForm.valider)}}
+    {{ form_end(addEntrepriseForm) }}
 
 {% endblock %}
