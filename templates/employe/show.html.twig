@@ -12,8 +12,21 @@
             {{ employe.entreprise.raisonSociale }}
         </a><br>
         Ville : {% if employe.ville %} {{ employe.ville }} {% else %} Non renseignée. {% endif %}<br>
-        Âge : {{ employe.age }} ans<br>
-        Date de naissance : {{ employe.dateNaissance | date("d/m/Y") }}<br>
+
+        Âge : 
+        {% if employe.age %}
+            {{ employe.age }} ans <br>
+        {% else %}
+            Inconnu <br>
+        {% endif %}
+
+        Date de naissance :
+        {% if employe.dateNaissance %}
+            {{ employe.dateNaissance | date("d/m/Y") }}<br>            
+        {% else %}
+           Non renseigné <br> 
+        {% endif %}
+        
         Date d'embauche : {{ employe.dateEmbauche | date("d/m/Y") }}<br>
     </p>
 
