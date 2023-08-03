@@ -30,6 +30,7 @@ class EmployeType extends AbstractType
             ])
             
             ->add('dateNaissance', DateType::class, [
+                'required' => false,
                 'widget' => 'single_text',
                 'attr' => [
                     'class' => 'form-control'
@@ -44,6 +45,7 @@ class EmployeType extends AbstractType
             ])
             
             ->add('ville', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control'
                 ]
