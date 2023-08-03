@@ -76,9 +76,13 @@ class Employe
 
     public function getAge(): ?string
     {
-        $now = new \DateTime();
-        $interval = $this->dateNaissance->diff($now);
-        return $interval->format("%Y");
+        if ($this->dateNaissance) {
+            $now = new \DateTime();
+            $interval = $this->dateNaissance->diff($now);
+            return $interval->format("%Y");
+        } else {
+            return false;
+        }
     }
 
     public function getDateEmbauche(): ?\DateTimeInterface
