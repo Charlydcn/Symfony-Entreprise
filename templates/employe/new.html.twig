@@ -1,9 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter un(e) employé(e){% endblock %}
+{% block title %}
+    {% if edit %}
+    Modifier un(e) employé(e)
+    {% else %}
+    Ajouter un(e) employé(e)        
+    {% endif %}
+{% endblock %}
 
 {% block body %}
-    <h1>Ajouter un(e) employé(e)</h1>
+    {% if edit %}
+        <h1>Modifier un(e) employé(e)</h1>
+    {% else %}
+        <h1>Ajouter un(e) employé(e)</h1>        
+    {% endif %}
 
     {{ form_start(addEmployeForm) }}
     <div class="row">

@@ -1,9 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter une entreprise{% endblock %}
+{% block title %}
+    {% if edit %}
+    Modifier une entreprise
+    {% else %}
+    Ajouter une entreprise
+    {% endif %}
+{% endblock %}
 
 {% block body %}
+    {% if edit %}
+    <h1>Modifier une entreprise</h1>
+    {% else %}
     <h1>Ajouter une entreprise</h1>
+    {% endif %}
 
     {{ form_start(addEntrepriseForm) }}
         <div class="row">
